@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package echeck;
+
+// 发送短信
+message SendSmsRequest {
+	int32 nationcode = 1;				// 国家码(中国86)
+	string phone = 2;					// 手机号码
+	string templateid = 3;				// 模板ID
+	map<string, string> param = 4;		// 内容参数
+	string ext = 5;						// 用户的session内容
+}
+
+message SendSmsResponse {
+	int32 result = 1;					// 应答结果
+	string reason = 2;					// 错误原因
+	string sid = 3;						// 发送ID
+	string ext = 4;						// 用户的session内容
+	int32 fee = 5;						// 短信计费的条数
+}

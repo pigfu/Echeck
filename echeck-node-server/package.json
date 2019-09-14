@@ -1,0 +1,21 @@
+{
+  "name": "echeck-server",
+  "version": "1.0.0",
+  "description": "A koa project",
+  "author": "pigfu <13051843944@163.com>",
+  "private": true,
+  "scripts": {
+    "dev": "node index.js",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "google-protobuf": "^3.10.0-rc.1",
+    "koa": "^2.8.1",
+    "koa-better-body": "^3.0.4",
+    "koa-bodyparser": "^4.2.1",
+    "koa-convert": "^1.2.0",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  }
+}

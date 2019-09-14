@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "echeck_sms_message.proto";
+
+option cc_generic_services = true;
+
+package echeck;
+
+service SmsService {
+	rpc SendSms(SendSmsRequest) returns(SendSmsResponse);
+}

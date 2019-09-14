@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package rpc;
+
+message EmptyRequest {
+}
+
+message EmptyResponse {
+}
+
+message SimpleResponse {
+	// Call result(0:success,else:fail)
+	int32 result = 1;
+	// Error reason
+	string reason = 2;
+}
+
+message RpcMessage {
+    enum Type {
+        REQUEST = 0;
+        RESPONSE = 1;
+    };
+
+	// Type of call, request/response
+    Type type = 1;
+    
+    // Sequence id of call
+    int64 sequence_id = 2;
+    
+    // Body of request/response
+    bytes buffer = 3;
+
+	// Name of servant
+	string servant = 4;
+	
+	// The fully-qualified name of the method, scope delimited by periods.
+    // It includes the full name of service.
+    string method = 5;
+    
+    // Call context
+    map<string, string> context = 6;
+	
+    // Field for request type, tag starts from 100.
+    // Timeout in milliseconds 
+    int64 timeout = 100;
+    // Set true if oneway call
+    bool oneway = 101;
+    
+    // Field for response type, tag starts from 200.
+    // Set the error code if failed.
+    int32 error_code = 200;
+    // Set the reason if failed.
+    string reason = 201;
+}
